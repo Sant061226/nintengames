@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-06-2025 a las 23:16:56
+-- Tiempo de generación: 21-06-2025 a las 00:50:29
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -32,6 +32,15 @@ CREATE TABLE `categories` (
   `name` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`) VALUES
+(1, 'Aventura'),
+(2, 'Metroidvania'),
+(3, 'RPG');
+
 -- --------------------------------------------------------
 
 --
@@ -47,6 +56,15 @@ CREATE TABLE `games` (
   `year` year(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `games`
+--
+
+INSERT INTO `games` (`id`, `tittle`, `platform_id`, `category_id`, `cover`, `year`) VALUES
+(1, 'Super Mario Oddysey', 1, 1, 'Cover', '2017'),
+(2, 'Halo', 2, 2, '0_N1fmHtI8gmkH_2Vu.png', '2011'),
+(6, 'Pokemon Esmeralda', 1, 1, 'OIP.jfif', '2005');
+
 -- --------------------------------------------------------
 
 --
@@ -57,6 +75,15 @@ CREATE TABLE `platforms` (
   `id` int(11) NOT NULL,
   `name` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `platforms`
+--
+
+INSERT INTO `platforms` (`id`, `name`) VALUES
+(1, 'Nintendo switch'),
+(2, 'Xbox series x'),
+(3, 'Playstation 5');
 
 -- --------------------------------------------------------
 
@@ -76,7 +103,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `fullname`, `email`, `password`) VALUES
-(1, 'Admin', 'admin@nintengames.com', '$2y$10$kJVm1/Pd.4ou0VQK7RJO6.7smAufA40hAkBk8y0vOi4UEsTENLggu');
+(1, 'Admin', 'admin@nintengames.com', 'admin');
 
 --
 -- Índices para tablas volcadas
@@ -113,10 +140,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT de la tabla `games`
 --
 ALTER TABLE `games`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `platforms`
+--
+ALTER TABLE `platforms`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
