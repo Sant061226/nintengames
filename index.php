@@ -22,7 +22,7 @@ if (isset($_GET["accion"])) {
         $controlador->verPagina('Vista/html/dashboard.php');
     } elseif ($_GET["accion"] == "edit") {
         $controlador->verPagina('Vista/html/edit.php');
-    } elseif($_GET['accion'] == 'show' ){
+    } elseif ($_GET['accion'] == 'show') {
         $controlador->show($_GET['id']);
     } elseif ($_GET["accion"] == "add") {
         $controlador->verPagina('Vista/html/add.php');
