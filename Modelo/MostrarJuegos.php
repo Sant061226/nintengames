@@ -24,8 +24,8 @@ $filas = $conexion->ObtenerFilasAfectadas();
                         </div>
                         <div class="controls">
                             <a href="index.php?accion=show&id=<?php echo  $fila['cod'] ?>" class="show"></a>
-                            <a href="index.php?accion=edit" class="edit"></a>
-                            <a href="index.php?accion=eliminarJuego&id=<?php echo $fila['cod'] ?>" onclick="return confirm('¿Seguro que desea eliminar este juego?');" class="delete"></a>
+                            <a href="index.php?accion=edit&id= <?php echo  $fila['cod'] ?>" class="edit"></a>
+                            <a href="index.php?accion=eliminarJuego&id=<?php echo $fila['cod'] ?>" onclick="return confirm('¿Seguro que desea eliminar <?php echo $fila['tittle'] ?>?');" class="delete"></a>
                         </div>
                     </td>
                 </tr>

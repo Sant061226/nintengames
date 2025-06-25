@@ -382,3 +382,14 @@ main.show div article p {
     width: 160px;
     border-radius: 50%;
 }
+input.upload::file-selector-button 
+{
+    border: none;
+    text-transform: uppercase;
+    color: #fff;
+    opacity: 0.5;
+}
+#editt{
+    margin-left: 30%;
+    cursor: pointer;
+}

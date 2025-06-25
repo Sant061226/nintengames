@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once 'Controlador/controlador.php';
 require_once 'Modelo/Conexion.php';
 require_once 'Modelo/GestionSesion.php';
@@ -21,8 +21,8 @@ if (isset($_GET["accion"])) {
     } elseif ($_GET["accion"] == "dashboard") {
         $controlador->verPagina('Vista/html/dashboard.php');
     } elseif ($_GET["accion"] == "edit") {
-        $controlador->verPagina('Vista/html/edit.php');
-    } elseif($_GET['accion'] == 'show' ){
+       $controlador->edit($_GET['id']);
+    } elseif ($_GET['accion'] == 'show') {
         $controlador->show($_GET['id']);
     } elseif ($_GET["accion"] == "add") {
         $controlador->verPagina('Vista/html/add.php');
@@ -49,6 +49,16 @@ if (isset($_GET["accion"])) {
             $cover,
             $_POST["year"]
 
+        );
+    } elseif ($_GET['accion'] == 'editGame') {
+        echo "<script>alert('fff'); </script>";
+        $controlador->editGame(
+            $_POST['id'],
+            $_POST["title"],
+            $_POST["platform"],
+            $_POST["category"],
+            $_POST["cover"],
+            $_POST["year"]
         );
     } elseif ($_GET['accion'] == 'eliminarJuego' && isset($_GET['id'])) {
         $controlador->eliminarJuego($_GET["id"]);
